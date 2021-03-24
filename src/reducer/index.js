@@ -48,7 +48,6 @@ export const getTasks = createAsyncThunk('/tasks/getAllTasks', async (values, th
 
 export const deleteTask = createAsyncThunk('/tasks/deleteTask', async (values, thunkAPI) => {
   try {
-    console.log('these are the values: ', values);
     const response = await axios.delete('http://localhost:8080/tasks/deleteTasks', { data: { id: values } });
     const { data } = response || {};
     notification.success({
@@ -73,9 +72,7 @@ export const deleteTask = createAsyncThunk('/tasks/deleteTask', async (values, t
 
 export const editTask = createAsyncThunk('/tasks/editTasks', async (values, thunkAPI) => {
   try {
-    console.log('these are the values: ', values);
     const response = axios.put('http://localhost:8080/tasks/editTasks', values);
-    console.log('this is the response of edit tasks: ', response.data)
     return response.data;
   } catch (err) {
     notification.error({

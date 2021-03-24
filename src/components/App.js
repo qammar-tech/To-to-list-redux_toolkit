@@ -12,8 +12,7 @@ const App = (props) => {
 
 
   const some = (values) => {
-    console.log('these are te values: ', values)
-    // const { resetFields } = form;
+    const { resetFields } = form;
     if (values.id == undefined) {
       dispatch(postTask(values)).then(() => {
         dispatch(getTasks());
@@ -28,13 +27,12 @@ const App = (props) => {
   }
 
   const editFeilds = (item) => {
-    console.log('this is the edit feild: ', item);
     form.setFieldsValue({
       customerName: item.taskName,
       customerSubName: item.subName,
       customerQuantity: item.quantity,
       id: item.id
-    })
+    });
   }
 
   return (
@@ -45,7 +43,7 @@ const App = (props) => {
           <div className="what">
             <Form.Item
               name="customerName"
-              rules={[{ required: true, min: 1, message: 'Please enter your name' }]}
+              rules={[{ required: true, message: 'Please enter your name' }]}
             >
               <Input placeholder="Customer Name" />
             </Form.Item>
@@ -53,7 +51,7 @@ const App = (props) => {
           <div className="what">
             <Form.Item
               name="customerQuantity"
-              rules={[{ required: true, min: 1, message: 'Please enter your quantity' }]}
+              rules={[{ required: true, message: 'Please enter your quantity' }]}
             >
               <Input placeholder="Customer Qunatity" />
             </Form.Item>

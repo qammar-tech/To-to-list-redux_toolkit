@@ -17,7 +17,6 @@ const TaskList = (props) => {
   }, []);
 
   const deleteTaskHandler = (item) => {
-    console.log('this is the item to be deleted: ', item)
     dispatch(deleteTask(item.id)).then(() => {
       dispatch(getTasks());
     });
