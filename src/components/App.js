@@ -51,15 +51,15 @@ const App = (props) => {
           <div className="what">
             <Form.Item
               name="customerQuantity"
-              rules={[{ required: true, message: 'Please enter your quantity' }]}
+              rules={[{ required: true, message: 'Please enter a Valid quantity' }]}
             >
-              <Input placeholder="Customer Qunatity" />
+              <Input type="number" placeholder="Customer Qunatity" />
             </Form.Item>
           </div>
           <div className="what">
             <Form.Item
               name="customerSubName"
-              rules={[{ required: true, min: 1, message: 'Please enter your subname name' }]}
+              rules={[{ required: true, type: "string", message: 'Please enter your subname name' }]}
             >
               <Input placeholder="Customer SubName" />
             </Form.Item>
